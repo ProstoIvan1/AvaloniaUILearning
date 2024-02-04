@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaloniaLearning.ViewModels"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaLearning.Views.RegistrationView"
+			 x:DataType="vm:RegistrationViewModel">
+	<Design.DataContext>
+		<vm:RegistrationViewModel/>
+	</Design.DataContext>
+	<UniformGrid Rows="7"
+				 Margin="150, 100">
+		
+		<TextBox Watermark="Name"
+				 Height="10"
+				 Text="{Binding Name}"/>
+		<TextBox Watermark="Class and grade"
+				 Height="10"
+				 Text="{Binding ClassGrade}"/>
+		<TextBox Watermark="Login"
+				 Height="10"
+				 Text="{Binding UserName}"/>
+		<TextBox Watermark="Password"
+				 Height="10"
+				 PasswordChar="*"
+				 Text="{Binding Password}"/>
+		
+		<TextBlock Text="{Binding SuccessText}"
+				   Foreground="{Binding SuccessBrush}"/>
+		
+		<Button HorizontalContentAlignment="Center"
+				HorizontalAlignment="Stretch"
+				Content="Create a new accout"
+				Command="{Binding CreateAccount}"/>
+		
+		<Button HorizontalContentAlignment="Center"
+				HorizontalAlignment="Stretch"
+				Content="Allready have an account?"
+				Command="{Binding $parent[Window].DataContext.ChangeToAuthorization}"/>
+	</UniformGrid>
+</UserControl>
